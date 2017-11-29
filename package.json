@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_PATH=.. nodemon index.js"
+    "test": "NODE_PATH=.. NODE_ENV=test mocha --exit",
+    "dev": "NODE_PATH=./ NODE_ENV=development nodemon index.js"
   },
   "repository": "https://github.com/bonusrk/lottery_back.git",
   "author": "bonusrk <word0bearer@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "assert": "^1.4.1",
     "clarify": "^2.0.0",
     "expect": "^21.2.1",
     "koa": "^2.4.1",

@@ -1,5 +1,5 @@
 const Koa = require('koa')
-const app = module.exports = new Koa();
+const app = new Koa();
 
 const path = require('path');
 const fs = require('fs');
@@ -11,13 +11,14 @@ if (process.env.NODE_ENV === 'test') {
   handlers.splice(toDelete, 1)
 }
 
-console.log(handlers)
-
 handlers.forEach(handler => require('./middlewares/' + handler).init(app));
 
 const Router = require('koa-router');
 const router = new Router();
 
 router.get('/', require('./routes/home').get);
+router.post('/', require('./routes/home').post)
 
 app.use(router.routes());
+
+module.exports = app
